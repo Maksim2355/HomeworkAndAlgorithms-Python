@@ -6,7 +6,7 @@ def column_formation(): #Формирование столбца
     cher = matrix_size
     array = []
     for i in range(cher):
-        array.append(randint(0,99))
+        array.append(randint(0, 25))
     return array
 
 
@@ -17,28 +17,24 @@ for i in range(matrix_size):
 print(matrix)
 
 
-#Поиск минора элемента
-def minor_extra(strokaudalenia, matrix_size, minor):
-    del minor[strokaudalenia]
-    for k in range(matrix_size - 2):
-        del minor[k][0]
-    return det(minor, matrix_size - 1)
+def minor(strokaudalenia, matrix):
+    del matrix[strokaudalenia]
+    for k in range(len(matrix)):
+        del matrix[k][0]
+    return matrix
 
 
-#Нахождение определителя
-def det(matrix, matrix_size):
-
-    if len(matrix) == 1:
+def determinant(matrix, matrix_size):
+    if matrix_size == 1:
         return matrix[0][0]
-    elif len(matrix) == 2:
-        det2x2 = (matrix[0][0] * matrix[1][1]) - (matrix[1][0] * matrix[0][1])
-        return det2x2
+    elif matrix_size == 2:
+        det = ((matrix[0][0] * matrix[1][1]) - (matrix[1][0] * matrix[0][1]))
+        return det
     else:
-        detMatrix = 0
+        det = 0
         for j in range(matrix_size):
-            detMatrix = detMatrix + ((-1) ** (j+2)) * matrix[j][0] * minor_extra(j, matrix_size, matrix)
-        return detMatrix
+            det = det + ((-1)**(2 + i)) * matrix[j][0] * determinant(minor(j, matrix), matrix_size - 1)
+        return det
 
 
-print(det(matrix, matrix_size))
-
+print(determinant(matrix, matrix_size))
