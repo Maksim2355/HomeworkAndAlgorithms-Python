@@ -13,7 +13,7 @@ def function(x):
 
 for i in range(num_intervals):
     total_area = total_area + dx * (function(x) +
-function(x + dx)) / 2
+    function(x + dx)) / 2
     x = x + dx
 
 print(total_area)
