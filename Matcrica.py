@@ -18,9 +18,9 @@ print(matrix)
 
 
 def minor(strokaudalenia, matrix):
-    del matrix[strokaudalenia]
     for k in range(len(matrix)):
         del matrix[k][0]
+    del matrix[strokaudalenia]
     return matrix
 
 
@@ -32,8 +32,9 @@ def determinant(matrix, matrix_size):
         return det
     else:
         det = 0
-        for j in range(matrix_size):
-            det = det + ((-1)**(2 + i)) * matrix[j][0] * determinant(minor(j, matrix), matrix_size - 1)
+        for j in range(matrix_size - 1):
+            min = minor(j, matrix)
+            det += ((-1)**(2 + i)) * matrix[j][0] * determinant(min, matrix_size - 2)
         return det
 
 

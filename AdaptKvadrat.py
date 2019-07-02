@@ -1,15 +1,11 @@
-from math import sin
-
 x_min = float(input("Введите минимальное значение X:"))
 x_max = float(input("Введите максимальное значение X:"))
 max_slice_error = float(input("Введите максимальное значение погрешности:"))
 num_intervals = int(input("Введите число разбиений:"))
 
-
 def function(x):
-    y = 1 + x + sin(2*x)
+    y = 1
     return y
-
 
 x1 = x_min
 x2 = x_max

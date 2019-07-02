@@ -1,18 +1,7 @@
-from random import randint
-array = []
-p = int(input("Введите размер масссива:"))
-for i in range(p):
-    array.append(randint(1,50))
-print(array)  #Полученный рандомный массив
-
-
-def merge_sort(array):  #Процесс разбиение списка
-    if len(array) <= 1:  #Если элемент в списке 1, то сортировка закончена
-        return array
-    middle = int(len(array) / 2)  #Переменная для разбиение массива на правую и левую часть
-    left = merge_sort(array[:middle])  #Левая часть массива
-    right = merge_sort(array[middle:])  #Правая часть массива
-    return merge(left, right)
+import random
+n = int(input("Введите количество символов:"))
+array = list(range(n))
+random.shuffle(array)
 
 
 def merge(left, right):
@@ -30,6 +19,17 @@ def merge(left, right):
         result += right
     return result
 
-array_sort = merge_sort(array)
 
-print(array_sort)
+def merge_sort(array):  #Процесс разбиение списка
+    if len(array) <= 1:  #Если элемент в списке 1, то сортировка закончена
+        return array
+    middle = int(len(array) / 2)  #Переменная для разбиение массива на правую и левую часть
+    left = merge_sort(array[:middle])  #Левая часть массива
+    right = merge_sort(array[middle:])  #Правая часть массива
+    return merge(left, right)
+
+
+
+
+
+print(merge_sort(array))

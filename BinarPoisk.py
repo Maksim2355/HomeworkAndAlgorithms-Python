@@ -7,7 +7,7 @@ print(array)
 
 element = int(input("Что вы хотите найти?"))
 mid = len(array) // 2
-end = len(array)
+end = (len(array) - 1)
 low = 0
 while element != array[mid] and low <= end:
     if element < array[mid]:

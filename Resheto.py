@@ -6,16 +6,14 @@ print(resheto)
 #фОРМИРОВАНИЕ СПИСКА ДО N
 
 k = 0  #Положение элемента простого числа в списке порядка N
-while k < len(resheto):
-    n = resheto[k]
-    while n < p:
-        s = 2
-        n = n * s  #Число, кратное простому числу
-        if n not in resheto:  #Проверка наличие удаляемого элемента в списке
-            continue
-        else:
-            resheto.remove(n)  #Удаление числа кратному простому числу
-        s = s + 1
+while True:
+    n = resheto[k] ** 2
+    if n > p:
+        break
+    s = n
+    while n <= p:
+        resheto.remove(n)
+        n += s
     k = k + 1  #Обозначение положение следующего простого числа
 
 print(resheto)

@@ -6,6 +6,6 @@ def DEC_TO_BIN(numb):
     whole_part = numb // 2
     if whole_part > 0:
         DEC_TO_BIN(whole_part)
-    print(remainder)
+    print(remainder, end='')
 
 DEC_TO_BIN(dec_numb)

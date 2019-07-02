@@ -5,7 +5,7 @@ def fn(x):
     return 1 + x + sin(x)
 
 
-def rect_integral(function ,xmin, xmax, num_intervals):
+def rect_integral(function, xmin, xmax, num_intervals):
     dx = (xmax-xmin)/num_intervals
     area = 0
     x = xmin

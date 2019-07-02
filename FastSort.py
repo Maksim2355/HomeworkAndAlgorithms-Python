@@ -1,9 +1,7 @@
-from random import randint
-array = []
-p = int(input("Введите размер масссива:"))
-for i in range(p):
-    array.append(randint(1,100))
-print(array)
+import random
+n = int(input("Введите количество символов:"))
+array = list(range(n))
+random.shuffle(array)
 
 
 def quicksort(array):
@@ -14,6 +12,5 @@ def quicksort(array):
         less = [i for i in array[1:] if i <= pivot]  #Подмассив всех элементов меньше опорного
         greater = [i for i in array[1:] if i > pivot]  #Подмассив всех элементов больше опорного
         return quicksort(less) + [pivot] + quicksort(greater)
-
 
 print(quicksort(array))
