@@ -1,41 +1,29 @@
-from random import randint
-matrix_size = int(input("Введите размер матрицы:"))
+matri = [[1, 5, 2],
+         [1, 4, 2],
+         [4, 2, 0]]
+#det = 8
+matrix_siz = 3
 
 
-def column_formation(): #Формирование столбца
-    cher = matrix_size
-    array = []
-    for i in range(cher):
-        array.append(randint(0, 25))
-    return array
-
-
-#Формирование матрицы
-matrix = []
-for i in range(matrix_size):
-    matrix.append(column_formation())
-print(matrix)
-
-
-def minor(strokaudalenia, matrix):
-    for k in range(len(matrix)):
-        del matrix[k][0]
-    del matrix[strokaudalenia]
+def minor(matrix, del_str, matrix_size):
+    del matrix[del_str]
+    for i in range(matrix_size):
+        del matrix[i][0]
+    print(matrix)
     return matrix
 
 
-def determinant(matrix, matrix_size):
+def det(matrix, matrix_size):
     if matrix_size == 1:
         return matrix[0][0]
     elif matrix_size == 2:
-        det = ((matrix[0][0] * matrix[1][1]) - (matrix[1][0] * matrix[0][1]))
-        return det
+        return (matrix[0][0] + matrix[1][1]) - (matrix[0][1] + matrix[1][0])
     else:
         det = 0
-        for j in range(matrix_size - 1):
-            min = minor(j, matrix)
-            det += ((-1)**(2 + i)) * matrix[j][0] * determinant(min, matrix_size - 2)
+        for i in range(matrix_size):
+            minor2 = minor(matrix, i, matrix_size - 1)
+            det += (1 ** (i + 2)) * matrix[i][0] * matrix(minor2, matrix_size - 1)
         return det
 
 
-print(determinant(matrix, matrix_size))
+print(det(matri, matrix_siz))

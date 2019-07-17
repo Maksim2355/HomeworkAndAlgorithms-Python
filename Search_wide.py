@@ -8,6 +8,8 @@ graph["apple"] = []
 graph["mango"] = []
 graph["tomato"] = []
 graph["cucumber"] = []
+
+
 def condition_check(fruits_apple):
     if fruits_apple == "apple":
         return 1
