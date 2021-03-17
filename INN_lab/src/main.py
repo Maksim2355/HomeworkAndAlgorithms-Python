@@ -31,7 +31,7 @@ for e in range(epochs):
         E = -(target - y)
         weights -= lr * E * y * (1.0 - y) * data
 
-noise_coefficient_arr = [(i / 30) for i in range(0, 6)]
+noise_coefficient_arr = [(i / 50) for i in range(0, 10)]
 bad_iteration = []
 
 data_x, target_y_arr = test_data
@@ -53,7 +53,5 @@ for coefficient in noise_coefficient_arr:
     print("Хорошие итерации", iter_good)
     print("Плохие итерации", iter_bad)
 
-fig, ax = plt.plot(noise_coefficient_arr, bad_iteration)
-ax.set_xlabel("Ось X - коэффициент шума", fontsize=14)
-ax.set_ylabel("Ось Y - Процент угадываемых значений", fontsize=14)
+plt.plot(noise_coefficient_arr, bad_iteration)
 plt.show()
